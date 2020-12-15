@@ -62,8 +62,8 @@ class StationsController < ApplicationController
       @station = Station.find(params[:id])
     end
 
-  
+
     def station_params
-      params.fetch(:station, {})
+      params.require(:station).permit(:rail_way_line, :station_name, :minutes_walk, :buildingy_id)
     end
 end
