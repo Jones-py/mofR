@@ -12,10 +12,12 @@ class BuildingsController < ApplicationController
 
   def new
     @building = Building.new
+    2.times { @building.stations.build }
   end
 
 
   def edit
+    1.times { @building.stations.build }
   end
 
 
@@ -24,14 +26,14 @@ class BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully created.' }
+        format.html { redirect_to @building, notice: 'building was successfully created.' }
         format.json { render :show, status: :created, location: @building }
       else
         format.html { render :new }
         format.json { render json: @building.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
 
   def update
