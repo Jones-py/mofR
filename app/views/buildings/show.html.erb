@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th></th>
+      <th>Rent</th>
+      <th></th>
+      <th>Address</th>
+      <th></th>
+      <th>Building age</th>
+      <th></th>
+      <th>Feedbacks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+<td><%=@building.building %></td>
+<td></td>
+<td><%= @building.rent %></td>
+<td></td>
+<td><%= @building.address %></td>
+<td></td>
+<td><%= @building.building_age %></td>
+<td></td>
+<td><%=@building.feedbacks %></td>
+<td></td>
+<br>
+<td><%= link_to 'Edit', edit_building_path(@building)%></td>
+<td></td>
+<td><%= link_to 'Return to Home', buildings_path %></td>
 
-<%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
+</tbody>
+</table>
