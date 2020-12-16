@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-<table>
+<h1>Building details</h1>
+<!-- <table>
   <thead>
     <tr>
       <th>Building</th>
@@ -14,21 +15,19 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody>
-<td><%=@building.building %></td>
-<td></td>
-<td><%= @building.rent %></td>
-<td></td>
-<td><%= @building.address %></td>
-<td></td>
-<td><%= @building.building_age %></td>
-<td></td>
-<td><%=@building.feedbacks %></td>
-<td></td>
-<br>
-<td><%= link_to 'Edit', edit_building_path(@building)%></td>
-<td></td>
-<td><%= link_to 'Return to Home', buildings_path %></td>
+  <tbody> -->
+<h3>Building: <%=@building.building %></h3>
 
-</tbody>
-</table>
+<h3>Rent: <%= @building.rent %>yen</h3>
+
+<h3>Address: <%= @building.address %></h3>
+
+<h3>Building age: <%= @building.building_age %> years</h3>
+
+<h3>Remarks: <%=@building.feedbacks %></h3>
+
+<hr>
+
+<%= link_to 'Edit', edit_building_path(@building)%>
+|
+<%= link_to 'Return to Home', buildings_path %>

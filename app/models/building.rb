@@ -5,7 +5,7 @@ class Building < ApplicationRecord
   validates :address, presence: true
   validates :building_age, presence: true
   validates :rent, numericality:true
-
+  validates :feedbacks, presence: true
   accepts_nested_attributes_for :stations, reject_if: :all_blank, :allow_destroy => true
 
 
