@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h1>Building details</h1>
+
+<h3>Building: <%=@building.building %></h3>
+
+<h3>Rent: <%= @building.rent %>yen</h3>
+
+<h3>Address: <%= @building.address %></h3>
+
+<h3>Building age: <%= @building.building_age %> years</h3>
+
+<h3>Remarks: <%=@building.feedbacks %></h3>
+
+<hr>
+<% @building.stations.where.not(minutes_walk: !nil).order(:minutes_walk).limit(1).each do |station| %>
+  <h2>Nearest station 1</h2>
+  <h4>Rail_way_line: <%=station.rail_way_line %></h4>
+  <h4>Station name: <%=station.station_name %></h4>
+  <h4> Minutes walk: <%=station.minutes_walk %></h4>
+<%end%>
+<% @building.stations.where.not(minutes_walk: !nil).order(:minutes_walk).limit(1).offset(1).each do |station| %>
+  <h2>Nearest station 2</h2>
+  <h4>Rail_way_line: <%=station.rail_way_line %></h4>
+  <h4>Station name: <%=station.station_name %></h4>
+  <h4> Minutes walk: <%=station.minutes_walk %></h4>
+<%end%>
+
+<%= link_to 'Edit', edit_building_path(@building)%>
+|
+<%= link_to 'Return to Home', buildings_path %>

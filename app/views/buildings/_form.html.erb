@@ -1,0 +1,80 @@
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+    <div class="card">
+      <div class="card-header">
+        Create New building
+      </div>
+      <div class="card-body">
+
+<%= form_for(building) do |f| %>
+  <% if building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+
+      <ul>
+      <% building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group row mt-2">
+
+  <div class="text-center">
+  <div class="field">
+    <%= f.label :building %>
+    <%= f.text_field :building %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.number_field :rent %> JPY
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building_age %>
+    <%= f.number_field :building_age %>Year/Years old
+  </div>
+
+  <div class="field">
+    <%= f.label :feedbacks %>
+    <%= f.text_area :feedbacks %>
+  </div>
+
+  <%= f.fields_for :stations do |ff| %>
+    <hr>
+    <strong>Name of rail way</strong><br>
+    <div class="field">
+      <%= ff.label :rail_way_line, "Name of rail way line" %>
+      <%= ff.text_field :rail_way_line %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :station_name %>
+      <%= ff.text_field :station_name %>
+    </div>
+    <div class="field">
+      <%= ff.label :minutes_walk, "How many minutes walk" %>
+      <%= ff.number_field :minutes_walk %>min/mins
+    </div>
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit  %>
+  </div>
+<% end %>
+
+</div>
+
+  </div>
+    </div>
+      </div>
+        </div>
+         
+          </div>
